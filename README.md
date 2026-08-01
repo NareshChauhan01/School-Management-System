@@ -2,8 +2,6 @@
 
 A modern **full-stack School Management System** built with the **MERN Stack (MongoDB, Express.js, React.js, and Node.js)**. This application is designed to simplify school administration by providing a secure, scalable, and user-friendly platform for managing students, teachers, classes, attendance, examinations, results, and fees.
 
----
-
 ### 🚀 Features
 
 ### 🔐 Authentication & Authorization
@@ -43,8 +41,6 @@ A modern **full-stack School Management System** built with the **MERN Stack (Mo
 * Notices
 * Update Profile
 
----
-
 ### 🛠️ Tech Stack
 
 ### Frontend
@@ -67,7 +63,6 @@ A modern **full-stack School Management System** built with the **MERN Stack (Mo
 * Multer
 * Cloudinary
 
----
 ### 🎯 Project Goals
 
 * Build a production-ready MERN Stack application.
@@ -75,7 +70,6 @@ A modern **full-stack School Management System** built with the **MERN Stack (Mo
 * Create a scalable and maintainable codebase.
 * Deliver a responsive and intuitive user experience.
 
----
 
 ### 📌 Project Status
 
@@ -83,19 +77,13 @@ A modern **full-stack School Management System** built with the **MERN Stack (Mo
 
 This project is actively being built step by step with production-level architecture and best practices.
 
----
-
 ### 🤝 Contributing
 
 Contributions, suggestions, and feedback are always welcome.
 
----
-
 ### 📄 License
 
 This project is licensed under the MIT License.
-
----
 
 ### 👨‍💻 Author
 
