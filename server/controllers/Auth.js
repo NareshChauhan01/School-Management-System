@@ -1,4 +1,7 @@
-const User = require('../models/User')
+const User = require('../models/User');
+const bcruptjs = require('bcrypt');
+
+
 // Sign Up
 exports.signup = async (req, res) => {
   try {
@@ -36,6 +39,9 @@ exports.signup = async (req, res) => {
         message: "User already registered!"
       })
     }
+
+    // Hash Password
+    const hashedPassword = await bcruptjs.hash(password, 15);
 
     // Entry create in db
     await User.create({
