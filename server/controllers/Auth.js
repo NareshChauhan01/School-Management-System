@@ -1,5 +1,6 @@
+const Profile = require('../models/Profile');
 const User = require('../models/User');
-const bcruptjs = require('bcrypt');
+const bcrupt = require('bcrypt');
 
 
 // Sign Up
@@ -33,7 +34,7 @@ exports.signup = async (req, res) => {
 
     //check user existance
     const existingUser = await User.findOne({ email });
-    if (!existingUser) {
+    if (existingUser) {
       return res.status(400).json({
         success: false,
         message: "User already registered!"
@@ -41,7 +42,21 @@ exports.signup = async (req, res) => {
     }
 
     // Hash Password
-    const hashedPassword = await bcruptjs.hash(password, 15);
+    const hashedPassword = await bcrupt.hash(password, 15);
+
+    // Profile Creation
+    // const profileDetails = await Profile.create({
+    //   gender: null,
+    //   dateOfBirth: null,
+    //   bloodGroup: null,
+    //   address: null,
+    //   city: null,
+    //   state: null,
+    //   country: null,
+    //   postalCode: null
+    // });
+    
+    const profileDetails = await Profile.create({});
 
     // Entry create in db
     await User.create({
@@ -51,6 +66,7 @@ exports.signup = async (req, res) => {
       password: hashedPassword,
       accountType,
       profileImage: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
+      additionalDetails: profileDetails._id,
     })
     // return res
     return res.status(200).json({
