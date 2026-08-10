@@ -28,6 +28,11 @@ const userSchema = new mongosse.Schema(
       enum: ["Admin", "Teacher", "Student"],
       required: true
     },
+    additionalDetails: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'Profile'
+    },
     profileImage: {
       type: String,
       required: true,
