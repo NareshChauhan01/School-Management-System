@@ -13,11 +13,11 @@ exports.signup = async (req, res) => {
       email,
       password,
       confirmPassword,
-      accountType,
+      role,
     } = req.body
 
     // Validate Process
-    if (!firstName || !lastName || !email || !password || !accountType) {
+    if (!firstName || !lastName || !email || !password || !role) {
       return res.status(403).json({
         success: false,
         message: "All fields are required"
@@ -64,7 +64,7 @@ exports.signup = async (req, res) => {
       lastName,
       email,
       password: hashedPassword,
-      accountType,
+      role,
       profileImage: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
       additionalDetails: profileDetails._id,
     })
