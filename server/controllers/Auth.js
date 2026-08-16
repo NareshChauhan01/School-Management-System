@@ -101,6 +101,27 @@ exports.login = async (req, res) => {
     // Check if user exists
     const user = await User.findOne({ email });
 
+    // Check if account is active
+    if (!user.isActive) {
+      return res.status(403).json({
+        success: false,
+        message: "Your account has been deactivated.",
+      });
+    }
+
+    // Compare password
+    const isPasswordMatched = await bcrypt.compare(
+      password,
+      user.password
+    );
+
+    if (!isPasswordMatched) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid email or password.",
+      });
+    }
+
     if (!user) {
       return res.status(401).json({
         success: false,
