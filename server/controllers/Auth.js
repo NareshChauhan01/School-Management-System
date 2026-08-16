@@ -55,7 +55,7 @@ exports.signup = async (req, res) => {
     //   country: null,
     //   postalCode: null
     // });
-    
+
     const profileDetails = await Profile.create({});
 
     // Entry create in db
@@ -85,3 +85,15 @@ exports.signup = async (req, res) => {
 };
 
 // Login
+exports.login = async (req, res) => {
+  try {
+    // Fetch data from req ki body
+
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Error occurred while logging in.",
+      error: error.message,
+    });
+  }
+}
