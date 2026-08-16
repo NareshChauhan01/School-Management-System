@@ -23,7 +23,7 @@ const userSchema = new mongosse.Schema(
       trim: true,
       required: true,
     },
-    accountType: {
+    role: {
       type: String,
       enum: ["Admin", "Teacher", "Student"],
       required: true
