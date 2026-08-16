@@ -88,6 +88,25 @@ exports.signup = async (req, res) => {
 exports.login = async (req, res) => {
   try {
     // Fetch data from req ki body
+    const { email, password } = req.body;
+
+    // Validate required fields
+    if (!email || !password) {
+      return res.status(400).json({
+        success: false,
+        message: "Email and password are required.",
+      });
+    }
+
+    // Check if user exists
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid email or password.",
+      });
+    }
 
   } catch (error) {
     return res.status(500).json({
